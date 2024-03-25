@@ -1,0 +1,11 @@
+.header {
+	@apply bg-white py-5 px-6 text-black border-b border-gray-200 flex justify-between items-center;
+}
+
+.actions {
+	@apply flex items-center;
+}
+
+.title {
+	@apply text-lg font-semibold ml-5;
+}

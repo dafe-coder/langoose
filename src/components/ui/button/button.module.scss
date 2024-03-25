@@ -1,0 +1,11 @@
+.button {
+	@apply border-blue-100 border rounded-lg flex px-4 py-2 text-sm items-center font-semibold;
+
+	svg {
+		@apply ml-2;
+	}
+}
+
+.primary {
+	@apply bg-blue-700 text-white border-none;
+}
