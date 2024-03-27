@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 
+import { DashboardNavBar } from '@/components/dashboardNavBar/DashboardNavbar'
+
 import { Header } from '../../components/header/header'
 
 export const metadata: Metadata = {
@@ -15,7 +17,10 @@ export default function RootLayout({
 	return (
 		<div>
 			<Header />
-			{children}
+			<div className='flex'>
+				<DashboardNavBar />
+				{children}
+			</div>
 		</div>
 	)
 }
