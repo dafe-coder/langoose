@@ -1,0 +1,15 @@
+.card {
+	@apply bg-white rounded-xl p-5;
+}
+
+.cardInner {
+	@apply bg-blue-50 p-5 border-blue-300 border-dashed border rounded-xl;
+}
+
+.drag {
+	@apply h-20 flex justify-center items-center mb-4 text-base text-gray-600;
+}
+
+.choose {
+	@apply cursor-pointer w-full flex justify-center items-center h-20 mt-4 text-blue-500 text-sm font-semibold gap-2;
+}

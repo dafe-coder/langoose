@@ -1,0 +1,32 @@
+.wrapper {
+	@apply min-w-80 w-full max-w-[50rem];
+}
+
+.header {
+	@apply flex justify-between mb-3;
+	.title {
+		@apply font-semibold text-xs;
+	}
+}
+
+.sectionWrapper {
+	@apply bg-blue-100 p-5 rounded-2xl;
+}
+
+.sectionHeader {
+	@apply flex justify-between items-center mb-3;
+}
+
+.sectionHeaderTitle {
+	@apply text-xs;
+	> strong {
+		@apply font-semibold;
+	}
+}
+
+.sectionHeaderNav {
+	@apply flex gap-4;
+	> button {
+		@apply hover:scale-125 transition-all;
+	}
+}
