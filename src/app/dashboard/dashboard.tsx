@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import { CanvasBuilder } from '../../components/buidler/CanvasBuilder/CanvasBuilder'
+import { CanvasBuilder } from '@/components/builder/CanvasBuilder/CanvasBuilder'
 
 import styles from './dashboard.module.scss'
 
