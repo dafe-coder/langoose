@@ -14,6 +14,7 @@ export const DashboardNavbarItem: FC<IDashboardDataItem> = ({ icon, name }) => {
 
 	const [{ isDragging }, drag] = useDrag(() => ({
 		type: dashboardBlocksDragType.textBlock,
+		item: { name },
 		collect: monitor => ({
 			isDragging: !!monitor.isDragging()
 		})
@@ -22,6 +23,7 @@ export const DashboardNavbarItem: FC<IDashboardDataItem> = ({ icon, name }) => {
 	return (
 		<div
 			className={styles.item}
+			// @ts-ignore
 			ref={drag}
 			style={{
 				opacity: isDragging ? 0.5 : 1,
@@ -31,7 +33,7 @@ export const DashboardNavbarItem: FC<IDashboardDataItem> = ({ icon, name }) => {
 			<div className={styles.icon}>
 				<IconComponent
 					size='16'
-					stroke-width={1}
+					strokeWidth={1}
 				/>
 			</div>
 			<div>{name}</div>

@@ -1,7 +1,8 @@
 'use client'
 
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import { useDrop } from 'react-dnd'
+import { blue } from 'tailwindcss/colors'
 
 import Icon from '@/components/ui/LucideIcon/LucideIcon'
 
@@ -11,36 +12,57 @@ import { Divider } from '../../ui/Divider/Divider'
 
 import styles from './sectionCardBuilder.module.scss'
 
-export const SectionCardBuilder: FC = () => {
+export interface DustbinProps {
+	accept: string[]
+	lastDroppedItem?: any
+	onDrop: (item: any) => void
+}
+
+export const SectionCardBuilder: FC<DustbinProps> = () => {
+	const [items, setItems] = useState([])
 	const [{ canDrop, isOver }, drop] = useDrop(() => ({
 		accept: dashboardBlocksDragType.textBlock,
-		drop: () => ({ name: 'SectionCardBuilder' }),
-		collect: (monitor) => ({
-		  isOver: monitor.isOver(),
-		  canDrop: monitor.canDrop(),
-		}),
+		drop: (item, monitor) => {
+			console.log(item)
+
+			return { name: 'SectionCardBuilder' }
+		},
+		collect: monitor => ({
+			isOver: monitor.isOver(),
+			canDrop: monitor.canDrop()
+		})
 	}))
+
+	const addItem = (item: string) => {
+		// const item =
+		// setItems(item)
+	}
+
 	const isActive = canDrop && isOver
 	let backgroundColor = ''
 	if (isActive) {
-	  backgroundColor = 'darkgreen'
+		backgroundColor = blue[200]
 	} else if (canDrop) {
-	  backgroundColor = 'darkkhaki'
+		backgroundColor = blue[100]
 	}
 	return (
-		<div
-			className={styles.card}
-			ref={drop}
-		>
-			<div className={styles.cardInner} style={{  backgroundColor }}>
-				<div className={styles.drag}>Drag and drop block here</div>
+		<div className={styles.card}>
+			<div className={styles.cardInner}>
+				<div
+					style={{ backgroundColor }}
+					className={styles.drag}
+					// @ts-ignore
+					ref={drop}
+				>
+					Drag and drop block here
+				</div>
 				<Divider>or</Divider>
 				<div className={styles.choose}>
-					<Icon
+					{/* <Icon
 						strokeWidth={3}
 						name='plus'
-					/>{' '}
-					Choose block
+					/> */}
+					+ Choose block
 				</div>
 			</div>
 		</div>
