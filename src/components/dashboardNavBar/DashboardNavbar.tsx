@@ -24,9 +24,8 @@ export const DashboardNavBar: FC = () => {
 						<div className={styles.itemList}>
 							{item.items.map(navbarItem => (
 								<DashboardNavbarItem
+									item={navbarItem}
 									key={navbarItem.name}
-									name={navbarItem.name}
-									icon={navbarItem.icon}
 								/>
 							))}
 						</div>

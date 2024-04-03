@@ -8,13 +8,15 @@ import { IDashboardDataItem } from '../dashboardNavbar.types'
 
 import styles from './dashboardNavbarItem.module.scss'
 
-export const DashboardNavbarItem: FC<IDashboardDataItem> = ({ icon, name }) => {
+export const DashboardNavbarItem: FC<{ item: IDashboardDataItem }> = ({
+	item
+}) => {
 	// @ts-ignore
-	const IconComponent = icons[icon]
+	const IconComponent = icons[item.icon]
 
 	const [{ isDragging }, drag] = useDrag(() => ({
-		type: dashboardBlocksDragType.textBlock,
-		item: { name },
+		type: dashboardBlocksDragType.navbarBlock,
+		item: item,
 		collect: monitor => ({
 			isDragging: !!monitor.isDragging()
 		})
@@ -36,7 +38,7 @@ export const DashboardNavbarItem: FC<IDashboardDataItem> = ({ icon, name }) => {
 					strokeWidth={1}
 				/>
 			</div>
-			<div>{name}</div>
+			<div>{item.name}</div>
 		</div>
 	)
 }

@@ -1,3 +1,4 @@
 export const dashboardBlocksDragType = {
-	textBlock: 'text block'
+	navbarBlock: 'navbarBlock',
+	buildBlocks: 'buildBlocks'
 }

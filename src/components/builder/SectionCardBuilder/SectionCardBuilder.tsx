@@ -1,29 +1,26 @@
 'use client'
 
-import { FC, useState } from 'react'
+import { FC, useCallback, useState } from 'react'
 import { useDrop } from 'react-dnd'
 import { blue } from 'tailwindcss/colors'
 
+import { IDashboardDataItem } from '@/components/dashboardNavBar/dashboardNavbar.types'
 import Icon from '@/components/ui/LucideIcon/LucideIcon'
 
 import { dashboardBlocksDragType } from '@/types/dashboard/dashboard.interface'
 
 import { Divider } from '../../ui/Divider/Divider'
 
+import DropList from './DropList'
 import styles from './sectionCardBuilder.module.scss'
 
-export interface DustbinProps {
-	accept: string[]
-	lastDroppedItem?: any
-	onDrop: (item: any) => void
-}
-
-export const SectionCardBuilder: FC<DustbinProps> = () => {
-	const [items, setItems] = useState([])
+export const SectionCardBuilder: FC = () => {
+	const [items, setItems] = useState<IDashboardDataItem[]>([])
 	const [{ canDrop, isOver }, drop] = useDrop(() => ({
-		accept: dashboardBlocksDragType.textBlock,
-		drop: (item, monitor) => {
-			console.log(item)
+		accept: dashboardBlocksDragType.navbarBlock,
+		drop: (item: IDashboardDataItem, monitor) => {
+			console.log(JSON.stringify(item))
+			addItem(item)
 
 			return { name: 'SectionCardBuilder' }
 		},
@@ -33,9 +30,8 @@ export const SectionCardBuilder: FC<DustbinProps> = () => {
 		})
 	}))
 
-	const addItem = (item: string) => {
-		// const item =
-		// setItems(item)
+	const addItem = (item: IDashboardDataItem) => {
+		setItems(state => [...state, item])
 	}
 
 	const isActive = canDrop && isOver
@@ -47,6 +43,10 @@ export const SectionCardBuilder: FC<DustbinProps> = () => {
 	}
 	return (
 		<div className={styles.card}>
+			<DropList
+				data={items}
+				setData={setItems}
+			/>
 			<div className={styles.cardInner}>
 				<div
 					style={{ backgroundColor }}

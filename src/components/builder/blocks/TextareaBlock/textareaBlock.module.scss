@@ -1,0 +1,7 @@
+.box {
+	@apply p-3 flex items-center justify-start gap-4 mb-5;
+}
+
+.input {
+	@apply outline-none text-base text-black placeholder:text-black;
+}

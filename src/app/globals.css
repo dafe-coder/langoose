@@ -26,3 +26,8 @@ body {
 		text-wrap: balance;
 	}
 }
+
+.white-box {
+	@apply bg-white rounded-xl;
+	box-shadow: 0px 4px 15px rgba(185, 209, 237, 0.3);
+}
