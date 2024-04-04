@@ -11,7 +11,7 @@ import { dashboardBlocksDragType } from '@/types/dashboard/dashboard.interface'
 
 import { Divider } from '../../ui/Divider/Divider'
 
-import DropList from './DropList'
+import DropList from './drop/DropList'
 import styles from './sectionCardBuilder.module.scss'
 
 export const SectionCardBuilder: FC = () => {

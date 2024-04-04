@@ -1,26 +1,27 @@
 import { IDashboardDataBlock } from './dashboardNavbar.types'
+import {v4 as uuid} from 'uuid'
 
 export const dashboardDataNavbar: IDashboardDataBlock[] = [
 	{
 		category: 'Layout',
 		items: [
 			{
-				id: new Date().getMilliseconds().toString(),
+				id: uuid().toString(),
 				icon: 'Layers2',
 				name: 'Prebuilt Blocks'
 			},
 			{
-				id: new Date().getMilliseconds().toString(),
+				id: uuid().toString(),
 				icon: 'BringToFront',
 				name: 'Layouts'
 			},
 			{
-				id: new Date().getMilliseconds().toString(),
+				id: uuid().toString(),
 				icon: 'Minus',
 				name: 'Line Braker'
 			},
 			{
-				id: new Date().getMilliseconds().toString(),
+				id: uuid().toString(),
 				icon: 'BringToFront',
 				name: 'Table'
 			}
@@ -30,17 +31,17 @@ export const dashboardDataNavbar: IDashboardDataBlock[] = [
 		category: 'Text',
 		items: [
 			{
-				id: new Date().getMilliseconds().toString(),
+				id: uuid().toString(),
 				icon: 'Heading',
 				name: 'Heading'
 			},
 			{
-				id: new Date().getMilliseconds().toString(),
+				id: uuid().toString(),
 				icon: 'BringToFront',
 				name: 'Single Line'
 			},
 			{
-				id: new Date().getMilliseconds().toString(),
+				id: uuid().toString(),
 				icon: 'Text',
 				name: 'Multiline'
 			}
@@ -50,27 +51,27 @@ export const dashboardDataNavbar: IDashboardDataBlock[] = [
 		category: 'Media',
 		items: [
 			{
-				id: new Date().getMilliseconds().toString(),
+				id: uuid().toString(),
 				icon: 'Image',
 				name: 'Image'
 			},
 			{
-				id: new Date().getMilliseconds().toString(),
+				id: uuid().toString(),
 				icon: 'Mic',
 				name: 'Audio'
 			},
 			{
-				id: new Date().getMilliseconds().toString(),
+				id: uuid().toString(),
 				icon: 'Video',
 				name: 'Video'
 			},
 			{
-				id: new Date().getMilliseconds().toString(),
+				id: uuid().toString(),
 				icon: 'Video',
 				name: 'Recording'
 			},
 			{
-				id: new Date().getMilliseconds().toString(),
+				id: uuid().toString(),
 				icon: 'Paperclip',
 				name: 'Attach File'
 			}

@@ -6,7 +6,9 @@ import { IDashboardDataItem } from '@/components/dashboardNavBar/dashboardNavbar
 
 import { dashboardBlocksDragType } from '@/types/dashboard/dashboard.interface'
 
-import { TextBlock, TextareaBlock } from '../blocks'
+import { TextBlock, TextareaBlock } from '../../blocks'
+
+import { DropItem } from './DropItem'
 
 const DropList: FC<{
 	data: IDashboardDataItem[]
@@ -24,9 +26,6 @@ const DropList: FC<{
 		[data]
 	)
 
-	useEffect(() => {
-		console.log(data)
-	}, [data])
 	const moveBlock = useCallback(
 		(id: string, atIndex: number) => {
 			const { block, index } = findBlock(id)
@@ -42,19 +41,28 @@ const DropList: FC<{
 		[findBlock, data, setData]
 	)
 
-	const generateItem = (name: string) => {
-		console.log(name)
-
-		switch (name) {
+	const generateItem = (item: IDashboardDataItem) => {
+		switch (item.name) {
 			case 'Heading':
 				return (
-					<TextBlock
+					<DropItem
+						id={item.id}
 						moveBlock={moveBlock}
 						findBlock={findBlock}
-					/>
+					>
+						<TextBlock />
+					</DropItem>
 				)
 			case 'Multiline':
-				return <TextareaBlock />
+				return (
+					<DropItem
+						id={item.id}
+						moveBlock={moveBlock}
+						findBlock={findBlock}
+					>
+						<TextareaBlock />
+					</DropItem>
+				)
 			default:
 				break
 		}
@@ -69,7 +77,7 @@ const DropList: FC<{
 			ref={drop}
 		>
 			{data.map(item => (
-				<React.Fragment key={item.id}>{generateItem(item.name)}</React.Fragment>
+				<React.Fragment key={item.id}>{generateItem(item)}</React.Fragment>
 			))}
 		</div>
 	)
