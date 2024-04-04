@@ -1,0 +1,10 @@
+.par {
+	@apply text-base text-gray-600;
+	> span {
+		@apply text-xs ml-4;
+	}
+}
+
+.xs {
+	@apply text-xs;
+}

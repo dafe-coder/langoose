@@ -6,7 +6,7 @@ import { IDashboardDataItem } from '@/components/dashboardNavBar/dashboardNavbar
 
 import { dashboardBlocksDragType } from '@/types/dashboard/dashboard.interface'
 
-import { TextBlock, TextareaBlock } from '../../blocks'
+import { ImageBlock, TextBlock, TextareaBlock } from '../../blocks'
 
 import { DropItem } from './DropItem'
 
@@ -61,6 +61,16 @@ const DropList: FC<{
 						findBlock={findBlock}
 					>
 						<TextareaBlock />
+					</DropItem>
+				)
+			case 'Image':
+				return (
+					<DropItem
+						id={item.id}
+						moveBlock={moveBlock}
+						findBlock={findBlock}
+					>
+						<ImageBlock />
 					</DropItem>
 				)
 			default:
