@@ -1,12 +1,13 @@
 import update from 'immutability-helper'
-import React, { FC, useCallback, useEffect } from 'react'
+import React, { FC, useCallback } from 'react'
 import { useDrop } from 'react-dnd'
 
 import { IDashboardDataItem } from '@/components/dashboardNavBar/dashboardNavbar.types'
 
 import { dashboardBlocksDragType } from '@/types/dashboard/dashboard.interface'
 
-import { ImageBlock, TextBlock, TextareaBlock } from '../../blocks'
+import { AudioBlock, ImageBlock, TextBlock, TextareaBlock } from '../../blocks'
+import { VideoBlock } from '../../blocks/VideoBlock/VideoBlock'
 
 import { DropItem } from './DropItem'
 
@@ -16,8 +17,7 @@ const DropList: FC<{
 }> = ({ data, setData }) => {
 	const findBlock = useCallback(
 		(id: string) => {
-			const block = data.filter(item => item.id == id)[0]
-
+			let block = data.filter(item => item.id == id)[0]
 			return {
 				block,
 				index: data.indexOf(block)
@@ -71,6 +71,26 @@ const DropList: FC<{
 						findBlock={findBlock}
 					>
 						<ImageBlock />
+					</DropItem>
+				)
+			case 'Audio':
+				return (
+					<DropItem
+						id={item.id}
+						moveBlock={moveBlock}
+						findBlock={findBlock}
+					>
+						<AudioBlock />
+					</DropItem>
+				)
+			case 'Video':
+				return (
+					<DropItem
+						id={item.id}
+						moveBlock={moveBlock}
+						findBlock={findBlock}
+					>
+						<VideoBlock />
 					</DropItem>
 				)
 			default:

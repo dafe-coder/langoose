@@ -1,0 +1,10 @@
+.wrapper {
+	@apply w-full;
+}
+
+.footer {
+	@apply flex gap-2.5;
+	> svg {
+		@apply rotate-180;
+	}
+}

@@ -1,6 +1,7 @@
 'use client'
 
-import { FC, useCallback, useState } from 'react'
+import classNames from 'classnames'
+import { FC, useState } from 'react'
 import { useDrop } from 'react-dnd'
 import { blue } from 'tailwindcss/colors'
 
@@ -19,8 +20,7 @@ export const SectionCardBuilder: FC = () => {
 	const [{ canDrop, isOver }, drop] = useDrop(() => ({
 		accept: dashboardBlocksDragType.navbarBlock,
 		drop: (item: IDashboardDataItem, monitor) => {
-			console.log(JSON.stringify(item))
-			addItem(item)
+			addItem({ ...item, id: item.id + Date.now() })
 
 			return { name: 'SectionCardBuilder' }
 		},
@@ -47,23 +47,30 @@ export const SectionCardBuilder: FC = () => {
 				data={items}
 				setData={setItems}
 			/>
-			<div className={styles.cardInner}>
+			<div
+				style={{ backgroundColor }}
+				className={styles.cardInner}
+			>
 				<div
-					style={{ backgroundColor }}
-					className={styles.drag}
+					className={classNames(styles.drag)}
+					style={canDrop ? { marginBottom: 0 } : { marginBottom: '1rem' }}
 					// @ts-ignore
 					ref={drop}
 				>
 					Drag and drop block here
 				</div>
-				<Divider>or</Divider>
-				<div className={styles.choose}>
-					{/* <Icon
-						strokeWidth={3}
-						name='plus'
-					/> */}
-					+ Choose block
-				</div>
+				{!canDrop && (
+					<>
+						<Divider>or</Divider>
+						<div className={styles.choose}>
+							<Icon
+								strokeWidth={3}
+								name='plus'
+							/>
+							Choose block
+						</div>
+					</>
+				)}
 			</div>
 		</div>
 	)
