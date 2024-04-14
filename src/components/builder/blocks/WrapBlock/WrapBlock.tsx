@@ -7,14 +7,14 @@ import styles from './wrapBlock.module.scss'
 
 interface Props extends PropsWithChildren {
 	titleBlock: string
-	placeholder: string
+	placeholder?: string
 	tip: string
 }
 
 export const WrapBlock: FC<Props> = ({
 	titleBlock,
 	tip,
-	placeholder,
+	placeholder = 'Write your instructions here',
 	children
 }) => {
 	return (

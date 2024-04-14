@@ -1,0 +1,7 @@
+.wrap {
+	@apply rounded-lg p-7 bg-gray-50 my-4;
+}
+
+.center {
+	@apply flex justify-center items-center gap-2.5;
+}

@@ -6,8 +6,14 @@ import { IDashboardDataItem } from '@/components/dashboardNavBar/dashboardNavbar
 
 import { dashboardBlocksDragType } from '@/types/dashboard/dashboard.interface'
 
-import { AudioBlock, ImageBlock, TextBlock, TextareaBlock } from '../../blocks'
-import { VideoBlock } from '../../blocks/VideoBlock/VideoBlock'
+import {
+	AudioBlock,
+	ImageBlock,
+	RecordBlock,
+	TextBlock,
+	TextareaBlock,
+	VideoBlock
+} from '../../blocks'
 
 import { DropItem } from './DropItem'
 
@@ -41,58 +47,35 @@ const DropList: FC<{
 		[findBlock, data, setData]
 	)
 
+	const generateDropItem = (
+		component: JSX.Element,
+		id: string
+	): JSX.Element => {
+		return (
+			<DropItem
+				id={id}
+				moveBlock={moveBlock}
+				findBlock={findBlock}
+			>
+				{component}
+			</DropItem>
+		)
+	}
+
 	const generateItem = (item: IDashboardDataItem) => {
 		switch (item.name) {
 			case 'Heading':
-				return (
-					<DropItem
-						id={item.id}
-						moveBlock={moveBlock}
-						findBlock={findBlock}
-					>
-						<TextBlock />
-					</DropItem>
-				)
+				return generateDropItem(<TextBlock />, item.id)
 			case 'Multiline':
-				return (
-					<DropItem
-						id={item.id}
-						moveBlock={moveBlock}
-						findBlock={findBlock}
-					>
-						<TextareaBlock />
-					</DropItem>
-				)
+				return generateDropItem(<TextareaBlock />, item.id)
 			case 'Image':
-				return (
-					<DropItem
-						id={item.id}
-						moveBlock={moveBlock}
-						findBlock={findBlock}
-					>
-						<ImageBlock />
-					</DropItem>
-				)
+				return generateDropItem(<ImageBlock />, item.id)
 			case 'Audio':
-				return (
-					<DropItem
-						id={item.id}
-						moveBlock={moveBlock}
-						findBlock={findBlock}
-					>
-						<AudioBlock />
-					</DropItem>
-				)
+				return generateDropItem(<AudioBlock />, item.id)
 			case 'Video':
-				return (
-					<DropItem
-						id={item.id}
-						moveBlock={moveBlock}
-						findBlock={findBlock}
-					>
-						<VideoBlock />
-					</DropItem>
-				)
+				return generateDropItem(<VideoBlock />, item.id)
+			case 'Recording':
+				return generateDropItem(<RecordBlock />, item.id)
 			default:
 				break
 		}

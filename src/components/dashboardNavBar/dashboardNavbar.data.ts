@@ -1,5 +1,6 @@
+import { v4 as uuid } from 'uuid'
+
 import { IDashboardDataBlock } from './dashboardNavbar.types'
-import {v4 as uuid} from 'uuid'
 
 export const dashboardDataNavbar: IDashboardDataBlock[] = [
 	{
@@ -74,6 +75,31 @@ export const dashboardDataNavbar: IDashboardDataBlock[] = [
 				id: uuid().toString(),
 				icon: 'Paperclip',
 				name: 'Attach File'
+			}
+		]
+	},
+	{
+		category: 'Activities',
+		items: [
+			{
+				id: uuid().toString(),
+				icon: 'Heading',
+				name: 'Flashcards'
+			},
+			{
+				id: uuid().toString(),
+				icon: 'Heading',
+				name: 'Open Questions'
+			},
+			{
+				id: uuid().toString(),
+				icon: 'ListChecks',
+				name: 'Multi-choice'
+			},
+			{
+				id: uuid().toString(),
+				icon: 'ListTodo',
+				name: 'Single Choice'
 			}
 		]
 	}

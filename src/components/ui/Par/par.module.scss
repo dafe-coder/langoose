@@ -13,8 +13,16 @@
 	@apply text-sm;
 }
 
+.m {
+	@apply text-lg;
+}
+
 .black {
 	@apply text-black;
+}
+
+.gray {
+	@apply text-gray-300;
 }
 
 .semibold {

@@ -6,8 +6,8 @@ import styles from './par.module.scss'
 interface ParProps
 	extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
 	children: string | ReactNode
-	size?: 'base' | 'xs' | 'sm'
-	color?: 'base' | 'black'
+	size?: 'base' | 'xs' | 'sm' | 'm'
+	color?: 'base' | 'black' | 'gray'
 	fw?: 'base' | 'semibold'
 }
 
