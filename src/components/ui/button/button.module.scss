@@ -1,11 +1,15 @@
 .button {
-	@apply border-gray-200 border rounded-lg flex px-4 py-2 text-sm items-center font-semibold;
-
-	svg {
-		@apply ml-2;
-	}
+	@apply border-gray-200 border rounded-lg flex px-4 py-2 text-sm items-center font-semibold gap-2;
 }
 
 .primary {
 	@apply bg-blue-600 text-white border-none;
+}
+
+.inline {
+	@apply border-none;
+}
+
+.blue {
+	@apply text-blue-500;
 }

@@ -9,7 +9,9 @@ import { dashboardBlocksDragType } from '@/types/dashboard/dashboard.interface'
 import {
 	AudioBlock,
 	ImageBlock,
+	MultipleChoice,
 	RecordBlock,
+	SingleChoice,
 	TextBlock,
 	TextareaBlock,
 	VideoBlock
@@ -76,6 +78,10 @@ const DropList: FC<{
 				return generateDropItem(<VideoBlock />, item.id)
 			case 'Recording':
 				return generateDropItem(<RecordBlock />, item.id)
+			case 'Multi-choice':
+				return generateDropItem(<MultipleChoice />, item.id)
+			case 'Single Choice':
+				return generateDropItem(<SingleChoice />, item.id)
 			default:
 				break
 		}

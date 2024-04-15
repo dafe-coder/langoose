@@ -4,13 +4,12 @@ import {
 	ButtonHTMLAttributes,
 	DetailedHTMLProps,
 	FC,
-	ForwardRefExoticComponent,
-	PropsWithChildren
+	ForwardRefExoticComponent
 } from 'react'
 
 import styles from './button.module.scss'
 
-type ButtonVariant = 'primary' | 'border' | 'danger'
+type ButtonVariant = 'primary' | 'border' | 'danger' | 'inline'
 
 interface IButtonProps
 	extends DetailedHTMLProps<
@@ -19,6 +18,8 @@ interface IButtonProps
 	> {
 	icon?: ForwardRefExoticComponent<LucideProps> | undefined
 	variant?: ButtonVariant
+	iconPos?: 'left' | 'right'
+	color?: 'black' | 'blue'
 }
 
 export const Button: FC<IButtonProps> = ({
@@ -26,15 +27,25 @@ export const Button: FC<IButtonProps> = ({
 	icon: Icon,
 	variant = 'border',
 	className,
+	iconPos = 'right',
+	color = 'black',
 	...rest
 }) => {
 	return (
 		<button
-			className={cn(styles.button, styles[variant], className)}
+			className={cn(styles.button, styles[variant], styles[color], className)}
 			{...rest}
 		>
+			{iconPos == 'left' && Icon ? (
+				<Icon
+					strokeWidth={2}
+					size={18}
+				/>
+			) : (
+				<></>
+			)}
 			{children}
-			{Icon ? (
+			{iconPos == 'right' && Icon ? (
 				<Icon
 					strokeWidth={2}
 					size={18}

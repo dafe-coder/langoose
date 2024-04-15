@@ -1,0 +1,57 @@
+.wrap {
+	@apply flex gap-2 items-center;
+}
+
+.chooseInp {
+	@apply hidden;
+}
+
+.chooseInp:checked + label {
+	@apply border-blue-500;
+	svg {
+		@apply block;
+	}
+}
+
+.check {
+	@apply border border-blue-200 w-5 h-5 cursor-pointer rounded-md flex items-center justify-center;
+	svg {
+		@apply hidden;
+	}
+}
+
+.radio {
+	@apply border border-blue-200 w-5 h-5 cursor-pointer rounded-full flex items-center justify-center;
+	svg {
+		@apply hidden;
+	}
+}
+
+.inputWrap {
+	@apply flex basis-full rounded-lg border border-blue-400 overflow-hidden py-2.5 px-3;
+	> input {
+		@apply grow border-none outline-none;
+	}
+	&.active {
+		@apply border-blue-500;
+	}
+}
+
+.btn {
+	@apply flex border-blue-100 border rounded-md px-2.5 py-1 text-xs cursor-pointer;
+	&.active {
+		@apply border-blue-500 bg-blue-500 text-white font-semibold;
+	}
+}
+
+.closeBtn {
+	@apply flex border-blue-100 border rounded-md p-1;
+}
+
+.nav {
+	@apply flex items-center gap-3.5;
+}
+
+.circle {
+	@apply rounded-full w-2 h-2 bg-blue-500;
+}
