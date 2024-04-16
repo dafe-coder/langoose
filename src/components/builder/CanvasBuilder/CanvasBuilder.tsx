@@ -26,22 +26,22 @@ export const CanvasBuilder: FC = () => {
 						<div className={styles.sectionHeaderNav}>
 							<button>
 								<Icon
-									name='chevron-up'
+									name='ChevronUp'
 									strokeWidth={1}
 									size={16}
 								/>
 							</button>
 							<button>
-								<Icon name='chevron-down' />
+								<Icon name='ChevronDown' />
 							</button>
 							<button>
-								<Icon name='copy' />
+								<Icon name='Copy' />
 							</button>
 							<button>
-								<Icon name='trash-2' />
+								<Icon name='Trash2' />
 							</button>
 							<button>
-								<Icon name='copy-plus' />
+								<Icon name='CopyPlus' />
 							</button>
 						</div>
 					</div>

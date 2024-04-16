@@ -1,7 +1,7 @@
+import { CircleAlert } from 'lucide-react'
 import { FC, PropsWithChildren } from 'react'
 
 import { Par } from '@/components/ui'
-import Icon from '@/components/ui/LucideIcon/LucideIcon'
 
 import styles from './wrapBlock.module.scss'
 
@@ -30,7 +30,10 @@ export const WrapBlock: FC<Props> = ({
 			</Par>
 			{children}
 			<div className={styles.footer}>
-				<Icon name='circle-alert' />
+				<CircleAlert
+					size={16}
+					strokeWidth={1}
+				/>
 				<Par size='xs'>{tip}</Par>
 			</div>
 		</div>

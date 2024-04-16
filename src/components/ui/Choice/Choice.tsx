@@ -1,8 +1,7 @@
 import cn from 'classnames'
+import { Check, X } from 'lucide-react'
 import { FC, useState } from 'react'
 import { blue } from 'tailwindcss/colors'
-
-import Icon from '@/components/ui/LucideIcon/LucideIcon'
 
 import styles from './choice.module.scss'
 
@@ -58,9 +57,8 @@ export const Choice: FC<Props> = ({
 				{isCheckedRadio === id ? (
 					<div className={styles.circle}></div>
 				) : (
-					<Icon
+					<Check
 						color={blue[500]}
-						name='check'
 						size={14}
 						strokeWidth={1.5}
 					/>
@@ -85,7 +83,10 @@ export const Choice: FC<Props> = ({
 						className={styles.closeBtn}
 						onClick={() => deleteChoice(id)}
 					>
-						<Icon name='x' />
+						<X
+							strokeWidth={1}
+							size={16}
+						/>
 					</button>
 				</div>
 			</div>

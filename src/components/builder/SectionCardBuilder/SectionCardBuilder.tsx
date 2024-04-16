@@ -1,12 +1,12 @@
 'use client'
 
 import classNames from 'classnames'
+import { Plus } from 'lucide-react'
 import { FC, useState } from 'react'
 import { useDrop } from 'react-dnd'
 import { blue } from 'tailwindcss/colors'
 
 import { IDashboardDataItem } from '@/components/dashboardNavBar/dashboardNavbar.types'
-import Icon from '@/components/ui/LucideIcon/LucideIcon'
 
 import { dashboardBlocksDragType } from '@/types/dashboard/dashboard.interface'
 
@@ -63,9 +63,9 @@ export const SectionCardBuilder: FC = () => {
 					<>
 						<Divider>or</Divider>
 						<div className={styles.choose}>
-							<Icon
+							<Plus
+								size={16}
 								strokeWidth={3}
-								name='plus'
 							/>
 							Choose block
 						</div>

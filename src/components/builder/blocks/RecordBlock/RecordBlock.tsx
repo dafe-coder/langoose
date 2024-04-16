@@ -18,7 +18,7 @@ export const RecordBlock = (props: Props) => {
 			<div className={styles.wrap}>
 				<div className={styles.center}>
 					<Icon
-						name='mic'
+						name='Mic'
 						size={28}
 						color={gray[300]}
 					/>
