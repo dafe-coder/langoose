@@ -100,6 +100,11 @@ export const dashboardDataNavbar: IDashboardDataBlock[] = [
 				id: uuid().toString(),
 				icon: 'ListTodo',
 				name: 'Single Choice'
+			},
+			{
+				id: uuid().toString(),
+				icon: 'Check',
+				name: 'True/False'
 			}
 		]
 	}

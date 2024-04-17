@@ -1,12 +1,16 @@
 import cn from 'classnames'
-import { Check, X } from 'lucide-react'
 import { FC, useState } from 'react'
-import { blue } from 'tailwindcss/colors'
+
+import { CloseButton } from '../Button/CloseButton'
+import { CheckBox } from '../Checkbox/CheckBox'
+import { InputWithNav } from '../InputWithNav/InputWithNav'
 
 import styles from './choice.module.scss'
 
-interface Props {
-	choice?: 'single' | 'multiple'
+export type ChoiceType = 'single' | 'multiple'
+
+export interface IChoiceProps {
+	choice?: ChoiceType
 	id: string
 	name?: string
 	deleteChoice: (id: string) => void
@@ -14,7 +18,7 @@ interface Props {
 	isCheckedRadio?: string
 }
 
-export const Choice: FC<Props> = ({
+export const Choice: FC<IChoiceProps> = ({
 	id,
 	choice = 'multiple',
 	deleteChoice,
@@ -26,70 +30,26 @@ export const Choice: FC<Props> = ({
 
 	return (
 		<div className={styles.wrap}>
-			{choice === 'multiple' ? (
-				<input
-					onChange={e => setIsChecked(e.target.checked)}
-					className={styles.chooseInp}
-					id={id}
-					type='checkbox'
-					checked={isChecked}
-				/>
-			) : (
-				setIsCheckedRadio &&
-				isCheckedRadio && (
-					<input
-						onChange={e => setIsCheckedRadio(id)}
-						className={styles.chooseInp}
-						id={id}
-						type='radio'
-						name={name}
-						checked={isCheckedRadio == id}
-					/>
-				)
-			)}
-			<label
-				htmlFor={id}
-				className={cn({
-					[styles.check]: choice === 'multiple',
-					[styles.radio]: choice === 'single'
-				})}
-			>
-				{isCheckedRadio === id ? (
-					<div className={styles.circle}></div>
-				) : (
-					<Check
-						color={blue[500]}
-						size={14}
-						strokeWidth={1.5}
-					/>
-				)}
-			</label>
-			<div
-				className={cn(styles.inputWrap, {
-					[styles.active]: isChecked || isCheckedRadio === id
-				})}
-			>
-				<input placeholder='Option 1' />
-				<div className={styles.nav}>
-					<label
-						className={cn(styles.btn, {
-							[styles.active]: isChecked || isCheckedRadio === id
-						})}
-						htmlFor={id}
-					>
-						{!isChecked || isCheckedRadio === id ? 'Set as correct' : 'Correct'}
-					</label>
-					<button
-						className={styles.closeBtn}
-						onClick={() => deleteChoice(id)}
-					>
-						<X
-							strokeWidth={1}
-							size={16}
-						/>
-					</button>
-				</div>
-			</div>
+			<CheckBox
+				choice={choice}
+				setIsCheckedRadio={setIsCheckedRadio}
+				name={name}
+				id={id}
+				isCheckedRadio={isCheckedRadio}
+				isChecked={isChecked}
+				setIsChecked={setIsChecked}
+			/>
+			<InputWithNav active={isChecked || isCheckedRadio === id}>
+				<label
+					className={cn(styles.btn, {
+						[styles.active]: isChecked || isCheckedRadio === id
+					})}
+					htmlFor={id}
+				>
+					{!isChecked || isCheckedRadio === id ? 'Set as correct' : 'Correct'}
+				</label>
+				<CloseButton onClick={() => deleteChoice(id)} />
+			</InputWithNav>
 		</div>
 	)
 }

@@ -1,7 +1,7 @@
 import { Eye, Save } from 'lucide-react'
 import { FC } from 'react'
 
-import { Button } from '../ui/button/button'
+import { Button } from '../ui/Button/Button'
 import { GoBack } from '../ui/goBack/goBack'
 
 import styles from './header.module.scss'

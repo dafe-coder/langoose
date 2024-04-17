@@ -14,6 +14,7 @@ import {
 	SingleChoice,
 	TextBlock,
 	TextareaBlock,
+	TrueFalseQuestionsBlock,
 	VideoBlock
 } from '../../blocks'
 
@@ -82,6 +83,8 @@ const DropList: FC<{
 				return generateDropItem(<MultipleChoice />, item.id)
 			case 'Single Choice':
 				return generateDropItem(<SingleChoice />, item.id)
+			case 'True/False':
+				return generateDropItem(<TrueFalseQuestionsBlock />, item.id)
 			default:
 				break
 		}

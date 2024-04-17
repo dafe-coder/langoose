@@ -3,7 +3,7 @@
 import { ChevronLeft } from 'lucide-react'
 import { ButtonHTMLAttributes, DetailedHTMLProps, FC } from 'react'
 
-import { Button } from '../button/button'
+import { Button } from '../Button/Button'
 
 import styles from './goBack.module.scss'
 

@@ -13,3 +13,7 @@
 .blue {
 	@apply text-blue-500;
 }
+
+.closeBtn {
+	@apply flex border-blue-100 border rounded-md p-1;
+}

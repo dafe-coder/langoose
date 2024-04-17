@@ -1,24 +1,30 @@
 import { CircleAlert } from 'lucide-react'
-import { FC, PropsWithChildren } from 'react'
+import { DetailedHTMLProps, FC, HTMLAttributes, ReactNode } from 'react'
 
 import { Par } from '@/components/ui'
 
 import styles from './wrapBlock.module.scss'
 
-interface Props extends PropsWithChildren {
+interface Props
+	extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
 	titleBlock: string
 	placeholder?: string
 	tip: string
+	children: ReactNode
 }
 
 export const WrapBlock: FC<Props> = ({
 	titleBlock,
 	tip,
 	placeholder = 'Write your instructions here',
-	children
+	children,
+	...rest
 }) => {
 	return (
-		<div className={styles.wrapper}>
+		<div
+			className={styles.wrapper}
+			{...rest}
+		>
 			<Par
 				fw='semibold'
 				className='mb-3'
