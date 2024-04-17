@@ -14,15 +14,13 @@ export const TrueFalseQuestionsItem: FC<Props> = ({ id }) => {
 				<CloseButton />
 			</InputWithNav>
 			<CheckBox
-				choice='single'
 				isChecked={isChecked}
 				setIsChecked={setIsChecked}
 				id={id}
 				name='nad'
 			/>
 			<CheckBox
-				choice='single'
-				isChecked={isChecked}
+				isChecked={!isChecked}
 				setIsChecked={setIsChecked}
 				id={id}
 				name='nad'

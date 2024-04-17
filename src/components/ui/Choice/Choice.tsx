@@ -2,8 +2,8 @@ import cn from 'classnames'
 import { FC, useState } from 'react'
 
 import { CloseButton } from '../Button/CloseButton'
-import { CheckBox } from '../Checkbox/CheckBox'
 import { InputWithNav } from '../InputWithNav/InputWithNav'
+import { CheckBox, Radio } from '../Inputs'
 
 import styles from './choice.module.scss'
 
@@ -30,15 +30,21 @@ export const Choice: FC<IChoiceProps> = ({
 
 	return (
 		<div className={styles.wrap}>
-			<CheckBox
-				choice={choice}
-				setIsCheckedRadio={setIsCheckedRadio}
-				name={name}
-				id={id}
-				isCheckedRadio={isCheckedRadio}
-				isChecked={isChecked}
-				setIsChecked={setIsChecked}
-			/>
+			{choice == 'multiple' && (
+				<CheckBox
+					id={id}
+					setActive={setIsChecked}
+					active={isChecked}
+				/>
+			)}
+			{setIsCheckedRadio && (
+				<Radio
+					setActive={setIsCheckedRadio}
+					active={isCheckedRadio}
+					name={name}
+					id={id}
+				/>
+			)}
 			<InputWithNav active={isChecked || isCheckedRadio === id}>
 				<label
 					className={cn(styles.btn, {

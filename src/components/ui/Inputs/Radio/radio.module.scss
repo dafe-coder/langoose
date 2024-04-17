@@ -2,22 +2,8 @@
 	@apply hidden;
 }
 
-.chooseInp:checked + label {
-	@apply border-blue-500;
-	svg {
-		@apply block;
-	}
-}
-
 .circle {
 	@apply rounded-full w-2 h-2 bg-blue-500;
-}
-
-.check {
-	@apply border border-blue-200 w-5 h-5 cursor-pointer rounded-md flex items-center justify-center;
-	svg {
-		@apply hidden;
-	}
 }
 
 .radio {

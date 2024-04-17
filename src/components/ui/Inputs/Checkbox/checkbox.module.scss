@@ -1,0 +1,17 @@
+.chooseInp {
+	@apply hidden;
+}
+
+.chooseInp:checked + label {
+	@apply border-blue-500;
+	svg {
+		@apply block;
+	}
+}
+
+.check {
+	@apply border border-blue-200 w-5 h-5 cursor-pointer rounded-md flex items-center justify-center;
+	svg {
+		@apply hidden;
+	}
+}

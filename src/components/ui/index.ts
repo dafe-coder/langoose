@@ -1,6 +1,6 @@
 export * from './Button/Button'
 export * from './Button/CloseButton'
-export * from './Checkbox/CheckBox'
 export * from './Choice/Choice'
 export * from './InputWithNav/InputWithNav'
+export * from './Inputs/Checkbox/CheckBox'
 export * from './Par/Par'
