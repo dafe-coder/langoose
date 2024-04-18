@@ -1,5 +1,9 @@
 .wrapper {
-	@apply m-8 bg-white rounded-lg p-6 w-80;
+	@apply m-8 w-80;
+}
+
+.card {
+	@apply w-full bg-white rounded-lg p-6 sticky top-7;
 	> *:not(:last-child) {
 		@apply mb-6;
 	}

@@ -3,7 +3,7 @@ import { FC, useState } from 'react'
 
 import { CloseButton } from '../Button/CloseButton'
 import { InputWithNav } from '../InputWithNav/InputWithNav'
-import { CheckBox, Radio } from '../Inputs'
+import { Checkbox, Radio } from '../Inputs'
 
 import styles from './choice.module.scss'
 
@@ -31,7 +31,7 @@ export const Choice: FC<IChoiceProps> = ({
 	return (
 		<div className={styles.wrap}>
 			{choice == 'multiple' && (
-				<CheckBox
+				<Checkbox
 					id={id}
 					setActive={setIsChecked}
 					active={isChecked}

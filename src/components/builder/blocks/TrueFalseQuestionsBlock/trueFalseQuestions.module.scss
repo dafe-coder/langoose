@@ -1,0 +1,17 @@
+.item {
+	@apply flex mb-3;
+}
+
+.header {
+	@apply flex justify-end mb-3;
+	> span {
+		@apply text-xs;
+		&:last-child {
+			@apply ml-3.5;
+		}
+	}
+}
+
+.nav {
+	@apply ml-3.5 flex justify-between w-20 px-1 h-full self-center;
+}

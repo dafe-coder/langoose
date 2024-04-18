@@ -11,7 +11,7 @@ interface ICheckBoxProps {
 	active: boolean
 }
 
-export const CheckBox: FC<ICheckBoxProps> = ({ id, setActive, active }) => {
+export const Checkbox: FC<ICheckBoxProps> = ({ id, setActive, active }) => {
 	return (
 		<>
 			<input

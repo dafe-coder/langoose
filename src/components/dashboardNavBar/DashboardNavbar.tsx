@@ -1,36 +1,40 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 
 import { dashboardDataNavbar } from './dashboardNavbar.data'
 import styles from './dashboardNavbar.module.scss'
 import { DashboardNavbarItem } from './dashboardNavbarItem/DashboardNavbarItem'
 
 export const DashboardNavBar: FC = () => {
+	const [data, setData] = useState(dashboardDataNavbar)
+
 	return (
 		<div className={styles.wrapper}>
-			<div>
-				<div className={styles.mainTitle}>Blocks</div>
-				<div className={styles.par}>
-					Drag and drop available widgets on to the gray dot area to design your
-					layout
-				</div>
-			</div>
-			{dashboardDataNavbar.length &&
-				dashboardDataNavbar.map(item => (
-					<div
-						className={styles.item}
-						key={item.category}
-					>
-						<div className={styles.itemTitle}>{item.category}</div>
-						<div className={styles.itemList}>
-							{item.items.map(navbarItem => (
-								<DashboardNavbarItem
-									item={navbarItem}
-									key={navbarItem.name}
-								/>
-							))}
-						</div>
+			<div className={styles.card}>
+				<div>
+					<div className={styles.mainTitle}>Blocks</div>
+					<div className={styles.par}>
+						Drag and drop available widgets on to the gray dot area to design
+						your layout
 					</div>
-				))}
+				</div>
+				{dashboardDataNavbar.length &&
+					dashboardDataNavbar.map(item => (
+						<div
+							className={styles.item}
+							key={item.category}
+						>
+							<div className={styles.itemTitle}>{item.category}</div>
+							<div className={styles.itemList}>
+								{item.items.map(navbarItem => (
+									<DashboardNavbarItem
+										item={navbarItem}
+										key={navbarItem.name}
+									/>
+								))}
+							</div>
+						</div>
+					))}
+			</div>
 		</div>
 	)
 }
