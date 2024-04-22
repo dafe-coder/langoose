@@ -25,6 +25,10 @@
 	@apply text-gray-300;
 }
 
+.dark {
+	@apply text-gray-500;
+}
+
 .semibold {
 	@apply font-semibold;
 }

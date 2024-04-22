@@ -20,7 +20,11 @@ const config: Config = {
 			current: 'currentColor',
 			black: colors.black,
 			white: colors.white,
-			gray: colors.slate,
+			gray: {
+				...colors.slate,
+				300: '#CED2DA',
+				500: '#637083'
+			},
 			green: colors.emerald,
 			purple: colors.violet,
 			yellow: colors.amber,

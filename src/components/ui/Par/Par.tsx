@@ -7,7 +7,7 @@ interface ParProps
 	extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
 	children: string | ReactNode
 	size?: 'base' | 'xs' | 'sm' | 'm'
-	color?: 'base' | 'black' | 'gray'
+	color?: 'base' | 'black' | 'gray' | 'dark'
 	fw?: 'base' | 'semibold'
 }
 

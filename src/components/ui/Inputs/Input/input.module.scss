@@ -1,0 +1,17 @@
+.input {
+	@apply border border-gray-300 h-10 text-black p-2 w-full rounded-lg placeholder:text-gray-300;
+}
+
+.icon {
+	@apply absolute left-3;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.inputWithIcon {
+	@apply pl-9;
+}
+
+.wrap {
+	@apply w-full relative;
+}
