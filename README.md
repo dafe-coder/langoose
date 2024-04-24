@@ -4,15 +4,19 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 First, run the development server:
 
-```bash
+```bash![Uploading Знімок екрана 2024-04-23 о 00.21.15.png…]()
+
 npm run dev
 # or
 yarn dev
+
 # or
 pnpm dev
 # or
 bun dev
 ```
+
+<img width="1724" alt="Знімок екрана 2024-04-18 о 18 42 51" src="https://github.com/dafe-coder/langoose/assets/38539591/932edb1a-c5eb-46ff-b0fe-8b37448ef329">
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
