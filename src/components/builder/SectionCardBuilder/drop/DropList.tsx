@@ -23,7 +23,8 @@ import { DropItem } from './DropItem'
 const DropList: FC<{
 	data: IDashboardDataItem[]
 	setData: (data: IDashboardDataItem[]) => void
-}> = ({ data, setData }) => {
+	addItem: (item: IDashboardDataItem) => void
+}> = ({ data, setData, addItem }) => {
 	const findBlock = useCallback(
 		(id: string) => {
 			let block = data.filter(item => item.id == id)[0]
@@ -89,8 +90,14 @@ const DropList: FC<{
 				break
 		}
 	}
+
 	const [, drop] = useDrop(() => ({
-		accept: dashboardBlocksDragType.buildBlocks
+		accept: dashboardBlocksDragType.navbarBlock,
+		drop: (item: IDashboardDataItem, monitor) => {
+			addItem(item)
+
+			return { name: 'SectionCardBuilder' }
+		}
 	}))
 
 	return (

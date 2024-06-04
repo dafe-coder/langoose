@@ -1,5 +1,6 @@
 'use client'
 
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
 
@@ -12,14 +13,17 @@ export default function RootLayout({
 }: Readonly<{
 	children: React.ReactNode
 }>) {
+	const queryClient = new QueryClient()
 	return (
 		<div>
 			<Header />
 			<div className='flex'>
-				<DndProvider backend={HTML5Backend}>
-					<DashboardNavBar />
-					{children}
-				</DndProvider>
+				<QueryClientProvider client={queryClient}>
+					<DndProvider backend={HTML5Backend}>
+						<DashboardNavBar />
+						{children}
+					</DndProvider>
+				</QueryClientProvider>
 			</div>
 		</div>
 	)

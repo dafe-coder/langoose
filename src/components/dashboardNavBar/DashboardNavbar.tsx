@@ -4,25 +4,36 @@ import { Par } from '@/components/ui'
 
 import { Search } from '../ui'
 
-import { dashboardDataNavbar } from './dashboardNavbar.data'
 import styles from './dashboardNavbar.module.scss'
+import { IDashboardDataBlock } from './dashboardNavbar.types'
 import { DashboardNavbarItem } from './dashboardNavbarItem/DashboardNavbarItem'
+import { useDashboard } from './hooks/dashboardData.hook'
 
 export const DashboardNavBar: FC = () => {
-	const [data, setData] = useState(dashboardDataNavbar)
+	const { data: dataNav } = useDashboard()
+	const [data, setData] = useState<IDashboardDataBlock[]>([])
 	const [searchValue, setSearchValue] = useState('')
 
 	useEffect(() => {
-		if (searchValue !== '') {
-			setData(
-				data.filter(item =>
-					item.category.toLowerCase().includes(searchValue.toLowerCase())
+		if (dataNav) {
+			setData(dataNav)
+		}
+	}, [dataNav])
+
+	useEffect(() => {
+		if (dataNav) {
+			if (searchValue !== '') {
+				setData(
+					dataNav.filter((item: IDashboardDataBlock) =>
+						item.title.toLowerCase().includes(searchValue.toLowerCase())
+					)
 				)
-			)
-		} else {
-			setData(dashboardDataNavbar)
+			} else {
+				setData(dataNav)
+			}
 		}
 	}, [searchValue])
+
 	return (
 		<div className={styles.wrapper}>
 			<div className={styles.card}>
@@ -41,15 +52,15 @@ export const DashboardNavBar: FC = () => {
 						placeholder='Search block'
 					/>
 				</div>
-				{data.length ? (
+				{data && data.length ? (
 					data.map(item => (
 						<div
 							className={styles.item}
-							key={item.category}
+							key={item.title}
 						>
-							<div className={styles.itemTitle}>{item.category}</div>
+							<div className={styles.itemTitle}>{item.title}</div>
 							<div className={styles.itemList}>
-								{item.items.map(navbarItem => (
+								{item.blockItems.map(navbarItem => (
 									<DashboardNavbarItem
 										item={navbarItem}
 										key={navbarItem.name}

@@ -44,6 +44,7 @@ export const SectionCardBuilder: FC = () => {
 	return (
 		<div className={styles.card}>
 			<DropList
+				addItem={addItem}
 				data={items}
 				setData={setItems}
 			/>
